@@ -50,7 +50,7 @@ function App() {
       })
       .catch(err => {console.log(err)})
     }else{
-      axios.get (`https://api.nasa.gov/planetary/apod?api_key=wiOcfSgtOXuVwPMP0rKNbhnhcTC1H58IRNv4N0Oe&date=2012-03-14`)
+      axios.get (`https://api.nasa.gov/planetary/apod?api_key=wiOcfSgtOXuVwPMP0rKNbhnhcTC1H58IRNv4N0Oe&date=2012-03-26`)
         .then(res => {
           console.log(res.data.date)
           setData(res.data)
@@ -75,21 +75,37 @@ function App() {
     console.log("SPLIT CURRENT DATE", dd, mm, yyyy)
     
     if (direction === "next"){
-      console.log("NEXT TRIGGER")
-      setIncrementedDate(
-        {month: mm,
-        day: parseFloat(dd) + 1,
-        year: yyyy,
-        dateIncremented: true}
-      )
+      if(parseFloat(dd) === 28) {
+        setIncrementedDate(
+          {month: parseFloat(mm) + 1,
+          day: 1,
+          year: yyyy,
+          dateIncremented: true}
+        )
+      }else{
+        setIncrementedDate(
+          {month: mm,
+          day: parseFloat(dd) + 1,
+          year: yyyy,
+          dateIncremented: true}
+        )
+      }
     }else if (direction === "prev"){
-      console.log("PREV TRIGGER")
+      if(parseFloat(dd) === 1){
+        setIncrementedDate(
+          {month: parseFloat(mm) - 1,
+          day: 28,
+          year: yyyy,
+          dateIncremented: true}
+        )
+      } else {
       setIncrementedDate(
         {month: mm,
         day: dd - 1,
         year: yyyy,
         dateIncremented: true}
       )
+      }
     }
   }
   
