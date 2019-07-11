@@ -5,6 +5,7 @@ import Image from './Image';
 import Explanation from './Explanation';
 import Date from './Date';
 import FetchDate from './FetchDate';
+import { Button } from 'semantic-ui-react'; 
 
 function App() {
   const [fetchDate, setFetchDate] = useState(
@@ -13,7 +14,7 @@ function App() {
     year: null,
     dateGiven: false}
   )
-  const [data, setData] = useState(
+  const [data, setData] = useState( 
       {copyright: '',
       date: '',
       explanation: '',
@@ -35,24 +36,20 @@ function App() {
 
   const fetchData = () => {
     if (incrementedDate.dateIncremented){
-      console.log("incrementedDate")
       axios.get (`https://api.nasa.gov/planetary/apod?api_key=wiOcfSgtOXuVwPMP0rKNbhnhcTC1H58IRNv4N0Oe&date=${incrementedDate.year}-${incrementedDate.month}-${incrementedDate.day}`)
       .then(res => {
-        console.log("NEW AXIOS CALL DATE", res.data.date)
         setData(res.data)
       })
       .catch(err => {console.log(err)})
     }else if (fetchDate.dateGiven){
       axios.get (`https://api.nasa.gov/planetary/apod?api_key=wiOcfSgtOXuVwPMP0rKNbhnhcTC1H58IRNv4N0Oe&date=${fetchDate.year}-${fetchDate.month}-${fetchDate.day}`)
       .then(res => {
-        console.log(res.data.date)
         setData(res.data)
       })
       .catch(err => {console.log(err)})
     }else{
-      axios.get (`https://api.nasa.gov/planetary/apod?api_key=wiOcfSgtOXuVwPMP0rKNbhnhcTC1H58IRNv4N0Oe&date=2012-03-26`)
+      axios.get (`https://api.nasa.gov/planetary/apod?api_key=wiOcfSgtOXuVwPMP0rKNbhnhcTC1H58IRNv4N0Oe`)
         .then(res => {
-          console.log(res.data.date)
           setData(res.data)
         })
         .catch(err => {})
@@ -65,14 +62,10 @@ function App() {
 
 
   const incrementDate = (direction) => {
-    console.log("Current date:",data.date)
     var dateSplit = data.date.split("-");
-    //=====================
     let dd = dateSplit[2];
     let mm = dateSplit[1];
     let yyyy = dateSplit[0];
-
-    console.log("SPLIT CURRENT DATE", dd, mm, yyyy)
     
     if (direction === "next"){
       if(parseFloat(dd) === 28) {
@@ -112,12 +105,12 @@ function App() {
   return (
     <div className="App">
       
-      <FetchDate setFetchDate = {setFetchDate} />
+      <FetchDate setFetchDate = {setFetchDate} setIncrementedDate = {setIncrementedDate} />
       <Image image = {data.url}/>
       <div className = "dateNav">
-        <button onClick = {() => incrementDate("prev")}>Prev</button>
+        <Button inverted onClick = {() => incrementDate("prev")}>Prev</Button>
         <Date date = {data.date} />
-        <button onClick = {() => incrementDate("next")}>Next</button>
+        <Button inverted onClick = {() => incrementDate("next")}>Next</Button>
       </div>
       <Explanation explanation = {data.explanation} />
     </div>

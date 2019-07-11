@@ -3,6 +3,7 @@
 .App {
   text-align: center;
   width: 100vw;
+  height: 100%;
   border: solid black 1px;
   margin: auto;
   color: white;
@@ -19,6 +20,21 @@
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
   pointer-events: none;
+}
+
+.mainImg {
+  height: 85vh;
+}
+
+input {
+  border:solid grey 1px;;
+  color: white;
+  background-color: black;
+}
+
+button {
+  color: white;
+  background-color: black;
 }
 
 .App-header {

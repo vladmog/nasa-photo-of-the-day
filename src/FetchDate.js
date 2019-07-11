@@ -25,6 +25,7 @@ class FetchDate extends Component {
             day: padDay, 
             year: padYear,
             dateGiven: true})
+        this.props.setIncrementedDate({dateIncremented: false})
     }
 
     render(){
