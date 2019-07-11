@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> should match snapshot 1`] = `
+<div
+  className="App"
+>
+  <div>
+    <form
+      onSubmit={[Function]}
+    >
+      <input
+        name="month"
+        onChange={[Function]}
+        placeholder="MM"
+        type="number"
+        value=""
+      />
+      <input
+        name="day"
+        onChange={[Function]}
+        placeholder="DD"
+        type="number"
+        value=""
+      />
+      <input
+        name="year"
+        onChange={[Function]}
+        placeholder="YYYY"
+        type="number"
+        value=""
+      />
+      <button
+        onClick={[Function]}
+      >
+        SUBMIT
+      </button>
+    </form>
+  </div>
+  <div>
+    <img
+      alt=""
+      className="mainImg"
+      src=""
+    />
+  </div>
+  <div
+    className="dateNav"
+  >
+    <button
+      className="ui inverted button"
+      onClick={[Function]}
+    >
+      Prev
+    </button>
+    <div>
+      <h3>
+        
+      </h3>
+    </div>
+    <button
+      className="ui inverted button"
+      onClick={[Function]}
+    >
+      Next
+    </button>
+  </div>
+  <div>
+    
+  </div>
+</div>
+`;
+
+exports[`should match snapshot 1`] = `
+<div
+  className="App"
+>
+  <div>
+    <form
+      onSubmit={[Function]}
+    >
+      <input
+        name="month"
+        onChange={[Function]}
+        placeholder="MM"
+        type="number"
+        value=""
+      />
+      <input
+        name="day"
+        onChange={[Function]}
+        placeholder="DD"
+        type="number"
+        value=""
+      />
+      <input
+        name="year"
+        onChange={[Function]}
+        placeholder="YYYY"
+        type="number"
+        value=""
+      />
+      <button
+        onClick={[Function]}
+      >
+        SUBMIT
+      </button>
+    </form>
+  </div>
+  <div>
+    <img
+      alt=""
+      className="mainImg"
+      src=""
+    />
+  </div>
+  <div
+    className="dateNav"
+  >
+    <button
+      className="ui inverted button"
+      onClick={[Function]}
+    >
+      Prev
+    </button>
+    <div>
+      <h3>
+        
+      </h3>
+    </div>
+    <button
+      className="ui inverted button"
+      onClick={[Function]}
+    >
+      Next
+    </button>
+  </div>
+  <div>
+    
+  </div>
+</div>
+`;
